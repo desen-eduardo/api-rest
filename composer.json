@@ -1,0 +1,12 @@
+{
+    "autoload":{
+        "psr-4": {
+            "App\\":"app/"
+        }
+    },
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.6",
+        "firebase/php-jwt": "^6.4"
+    }
+}

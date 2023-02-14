@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+    ngnix:
+        image: nginx:alpine
+        ports:
+            - "8000:80"
+        volumes:
+            - ../:/var/www
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - app-php
+
+    app:
+        build: 
+            context: ./
+            dockerfile: Dockerfile
+        working_dir: /var/www
+        volumes:
+            - ../:/var/www
+        networks:
+            - app-php
+
+networks:
+    app-php:
+        driver: bridge                    
