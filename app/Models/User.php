@@ -16,7 +16,7 @@ class User
 
     public function login(array $data): object | bool
     {
-        $sql = "SELECT * FROM usuarios WHERE email = :email";
+        $sql = "SELECT senha FROM usuarios WHERE email = :email";
         $this->query = $this->pdo->getConexao()->prepare($sql);
         $this->query->bindValue(':email',$data['email']);
         $this->query->execute();

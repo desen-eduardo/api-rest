@@ -60,9 +60,16 @@ class UserController extends Controller
             } 
 
             $user = new User;
-            if ($user->login($payload)) {
-                $token = new TokenJwt();
-                $data['data'] = $token->generate($payload['email']);
+            $password = $user->login($payload);
+            
+            if ($password) {
+                if (password_verify($payload['senha'],$password->senha)) {
+                    $token = new TokenJwt();
+                    $data['data'] = $token->generate($payload['email']);
+                    return $this->jsonResponse($data,$response,200);
+                } 
+
+                $data['error'] = 'E-mail e/ou senha invalido';
                 return $this->jsonResponse($data,$response,200);
             }
         }  
