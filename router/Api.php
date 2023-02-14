@@ -13,7 +13,7 @@ $app->group('/api',function(RouteCollectorProxy $group){
     $group->get('/product/all[/{page}]',ProductController::class.':index');
     $group->post('/product/register',ProductController::class.':create');
     $group->get('/product/edit/{id}',ProductController::class.':read');
-    $group->put('/product/atualizar',ProductController::class.':update');
+    $group->put('/product/update',ProductController::class.':update');
     $group->delete('/product/delete',ProductController::class.':delete');
 
     $group->post('/user/register',UserController::class.':index');
