@@ -18,4 +18,8 @@ POST - http://localhost:8000/api/product/register
 PUT - http://localhost:8000/api/product/update
 DELETE - http://localhost:8000/api/product/delete
 
-Quando pegar logar precisa pegar o token e passa nas requisições com autorization:Bearer "token"
+Quando logar precisa-se pegar o token e passa nas requisições com autorization:Bearer "token"
+
+Na pasta docker, db banco cadastro.db, no header deve passa Content-Type:application/json
+
+
